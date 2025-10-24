@@ -31,8 +31,8 @@
                 <td th:text="${#temporals.format(reserva.dtCheckin, 'dd/MM/yyyy')}"></td>
                 <td th:text="${#temporals.format(reserva.dtCheckout, 'dd/MM/yyyy')}"></td>
                 <td>
-                    <a th:href="@{'/reservas/editar/' + ${reserva.id}}">Editar</a> |
-                    <a th:href="@{'/reservas/excluir/' + ${reserva.id}}"
+                    <a href="@{|/reservas/${reserva.id}/editar|}">Editar</a>
+                    <a href="@{|/reservas/${reserva.id}/excluir|}"
                         onclick="return confirm('Deseja excluir esta reserva?')">Excluir</a>
                 </td>
             </tr>

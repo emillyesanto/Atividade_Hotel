@@ -26,8 +26,8 @@
                 <td th:text="${hospede.nome}"></td>
                 <td th:text="${hospede.telefone}"></td>
                 <td>
-                    <a href="@{'/hospedes/editar/' + ${hospede.id}}">Editar</a>
-                    <a href="@{'/hospedes/excluir/' + ${hospede.id}}">Excluir</a>
+                    <a href="@{|/hospedes/${hospede.id}/editar|}">Editar</a>
+                    <a href="@{|/hospedes/${hospede.id}/excluir|}">Excluir</a>
                 </td>
             </tr>
         </tbody>
