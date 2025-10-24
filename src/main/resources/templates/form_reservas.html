@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/css/style.css">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Nova Reserva</title>
+</head>
+
+<body>
+    <h1>Nova Reserva</h1>
+
+    <form th:action="@{/reservas/salvar}" th:object="${reserva}" method="post">
+        <label>Data de Check-in:</label>
+        <input type="date" th:field="*{dtCheckin}" required><br>
+
+        <label>Data de Check-out:</label>
+        <input type="date" th:field="*{dtCheckout}" required><br>
+
+        <label>Hóspede:</label>
+        <select th:field="*{hospede.id}" required>
+            <option value="" disabled selected>Selecione o hóspede</option>
+            <option th:each="h : ${hospedes}" th:value="${h.id}" th:text="${h.nome}"></option>
+        </select><br>
+
+        <label>Hotel:</label>
+        <select th:field="*{hotel.id}" required>
+            <option value="" disabled selected>Selecione o hotel</option>
+            <option th:each="h : ${hoteis}" th:value="${h.id}" th:text="${h.nome}"></option>
+        </select><br>
+
+        <button type="submit">Salvar</button>
+    </form>
+
+    <a th:href="@{/reservas}">Voltar</a>
+
+
+</body>
+
+</html>

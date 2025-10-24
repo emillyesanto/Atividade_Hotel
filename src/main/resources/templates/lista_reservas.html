@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/css/style.css">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Reservas</title>
+</head>
+
+<body>
+    <h1>Reservas Cadastradas</h1>
+
+    <a th:href="@{/reservas/novo}" class="botao-novo">+ Nova Reserva</a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Hóspede</th>
+                <th>Hotel</th>
+                <th>Check-in</th>
+                <th>Check-out</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="reserva : ${reservas}">
+                <td th:text="${reserva.id}"></td>
+                <td th:text="${reserva.hospede.nome}"></td>
+                <td th:text="${reserva.hotel.nome}"></td>
+                <td th:text="${#temporals.format(reserva.dtCheckin, 'dd/MM/yyyy')}"></td>
+                <td th:text="${#temporals.format(reserva.dtCheckout, 'dd/MM/yyyy')}"></td>
+                <td>
+                    <a th:href="@{'/reservas/editar/' + ${reserva.id}}">Editar</a> |
+                    <a th:href="@{'/reservas/excluir/' + ${reserva.id}}"
+                        onclick="return confirm('Deseja excluir esta reserva?')">Excluir</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a th:href="@{/}">Voltar</a>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/css/style.css">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <h1>Cadastrar Novo Hóspede</h1>
+
+    <form th:action="@{/hospedes/salvar}" th:object="${hospede}" method="post">
+        <label>Nome:</label>
+        <input type="text" th:field="*{nome}" required><br>
+
+        <label>CPF:</label>
+        <input type="text" th:field="*{cpf}" required><br>
+
+        <label>Telefone:</label>
+        <input type="text" th:field="*{telefone}" required><br>
+
+        <button type="submit">Salvar</button>
+    </form>
+
+    <a th:href="@{/hospedes}">Voltar</a>
+</body>
+
+</html>
