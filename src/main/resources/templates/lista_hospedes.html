@@ -10,7 +10,7 @@
 
 <body>
     <h1>Hóspedes</h1>
-    <a href="@{/hospedes/novo}">Novo Hóspede</a>
+    <a th:href="@{/hospedes/novo}">+ Novo Hóspede</a>
     <table>
         <thead>
             <tr>
@@ -26,8 +26,8 @@
                 <td th:text="${hospede.nome}"></td>
                 <td th:text="${hospede.telefone}"></td>
                 <td>
-                    <a th:href="@{|/hospedes/${hospede.id}/editar|}">Editar</a>
-                    <a th:href="@{|/hospedes/${hospede.id}/excluir|}">Excluir</a>
+                    <a th:href="@{/hospedes/editar/{id}(id=${hospede.id})}">Editar</a>
+                    <a th:href="@{/hospedes/excluir/{id}(id=${hospede.id})}">Excluir</a>
                 </td>
             </tr>
         </tbody>

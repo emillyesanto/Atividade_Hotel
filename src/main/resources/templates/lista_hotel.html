@@ -10,7 +10,7 @@
 
 <body>
     <h1>Hotéis</h1>
-    <a href="@{/hoteis/novo}">Novo Hotel</a>
+    <a th:href="@{/hoteis/novo}">+ Novo Hotel</a>
     <table>
         <thead>
             <tr>
@@ -26,8 +26,8 @@
                 <td th:text="${hotel.nome}"></td>
                 <td th:text="${hotel.cidade}"></td>
                 <td>
-                    <a th:href="@{|/hoteis/${hotel.id}/editar|}">Editar</a>
-                    <a th:href="@{|/hoteis/${hotel.id}/excluir|}">Excluir</a>
+                    <a th:href="@{/hoteis/editar/{id}(id=${hotel.id})}">Editar</a>
+                    <a th:href="@{/hoteis/excluir/{id}(id=${hotel.id})}">Excluir</a>
                 </td>
             </tr>
         </tbody>
