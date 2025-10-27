@@ -26,8 +26,8 @@
                 <td th:text="${hotel.nome}"></td>
                 <td th:text="${hotel.cidade}"></td>
                 <td>
-                    <a href="@{|/hoteis/${hotel.id}/editar|}">Editar</a>
-                    <a href="@{|/hoteis/${hotel.id}/excluir|}">Excluir</a>
+                    <a th:href="@{|/hoteis/${hotel.id}/editar|}">Editar</a>
+                    <a th:href="@{|/hoteis/${hotel.id}/excluir|}">Excluir</a>
                 </td>
             </tr>
         </tbody>
